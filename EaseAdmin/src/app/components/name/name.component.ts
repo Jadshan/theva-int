@@ -13,9 +13,9 @@ export class NameComponent {
   constructor(private nameService: NameService) {}
 
   getNameResponse(): void {
-    this.nameService.getNameResponse(this.name).subscribe(
-      (res) => (this.response = res),
-      (err) => console.error(err)
-    );
+    this.nameService.getNameResponse(this.name).subscribe({
+      next: (res) => (this.response = res),
+      error: (err) => console.error(err),
+    });
   }
 }
